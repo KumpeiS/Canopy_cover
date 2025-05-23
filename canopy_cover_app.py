@@ -20,7 +20,7 @@ if uploaded_file is not None:
     canvas_result = st_canvas(
         fill_color="rgba(255, 165, 0, 0.3)",
         stroke_width=2,
-        background_image=image,
+        background_image=img_np,
         update_streamlit=True,
         height=h,
         width=w,
