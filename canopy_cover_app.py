@@ -11,6 +11,13 @@ st.title("🌿 Canopy Cover Estimation with Clickable Scale")
 uploaded_file = st.file_uploader("Upload an image (with 20cm square black paper)", type=["png", "jpg", "jpeg"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
+    # --- ここから追加：画像を1000px以下に縮小 ---
+    MAX_WIDTH = 1000
+    if image.width > MAX_WIDTH:
+    ratio = MAX_WIDTH / image.width
+    new_height = int(image.height * ratio)
+    image = image.resize((MAX_WIDTH, new_height))
+
     img_np = np.array(image)
     h, w = img_np.shape[:2]
     st.image(image, caption="Uploaded Image", use_column_width=True)
