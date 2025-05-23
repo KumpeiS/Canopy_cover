@@ -14,9 +14,9 @@ if uploaded_file is not None:
     # --- ここから追加：画像を1000px以下に縮小 ---
     MAX_WIDTH = 1000
     if image.width > MAX_WIDTH:
-    ratio = MAX_WIDTH / image.width
-    new_height = int(image.height * ratio)
-    image = image.resize((MAX_WIDTH, new_height))
+        ratio = MAX_WIDTH / image.width
+        new_height = int(image.height * ratio)
+        image = image.resize((MAX_WIDTH, new_height))
 
     img_np = np.array(image)
     h, w = img_np.shape[:2]
